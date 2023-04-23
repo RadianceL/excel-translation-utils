@@ -17,11 +17,11 @@ public class Main {
     /**
      * 百度翻译KEY
      */
-    private static final String apiKey = "20190305000273929";
+    private static final String apiKey = "";
     /**
      * 百度翻译secret
      */
-    private static final String apiSecret = "UAmkgFiTYJ9nXo4J7Bi9";
+    private static final String apiSecret = "";
 
     private static final String filePath = "/Users/eddie/Desktop/契約品翻訳リスト.xlsx";
 
