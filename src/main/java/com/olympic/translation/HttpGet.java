@@ -63,18 +63,10 @@ class HttpGet {
             close(br); // 关闭数据流
             close(is); // 关闭数据流
             conn.disconnect(); // 断开连接
-
             return text;
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (KeyManagementException e) {
-            e.printStackTrace();
-        } catch (NoSuchAlgorithmException e) {
+        } catch (IOException | KeyManagementException | NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
-
         return null;
     }
 
@@ -131,17 +123,10 @@ class HttpGet {
         if (input == null) {
             return "";
         }
-
-        try {
-            return URLEncoder.encode(input, "utf-8");
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-
-        return input;
+        return URLEncoder.encode(input, StandardCharsets.UTF_8);
     }
 
-    private static TrustManager myX509TrustManager = new X509TrustManager() {
+    private static final TrustManager myX509TrustManager = new X509TrustManager() {
 
         @Override
         public X509Certificate[] getAcceptedIssuers() {
